@@ -10,12 +10,19 @@ library(readxl)
 ## Argument parsing
 ###################
 
-filename <- "/Users/lucaskearns/weissman_hood/working_dir/GEMMA/data/rotarod/ML-70 Cohort 3 Rotarod Data FAKE GENOTYPE.xlsx"
-sheetname <- "Sheet1"
-comp_col <- "Genotype"
-num_col <- "Latency to fall (seconds)"
-sep_col <- "Date Run"
-output <- "/Users/lucaskearns/weissman_hood/working_dir/GEMMA/data/rotarod/test_output/ML-70 Cohort 3 Rotarod Data FAKE GENOTYPE.pdf"
+# filename <- "/Users/lucaskearns/weissman_hood/working_dir/GEMMA/data/rotarod/ML-70 Cohort 3 Rotarod Data FAKE GENOTYPE.xlsx"
+# sheetname <- "Sheet1"
+# comp_col <- "Genotype"
+# num_col <- "Latency to fall (seconds)"
+# sep_col <- "Date Run"
+# output <- "/Users/lucaskearns/weissman_hood/working_dir/GEMMA/data/rotarod/test_output/ML-70 Cohort 3 Rotarod Data FAKE GENOTYPE.pdf"
+args <- commandArgs(trailingOnly = TRUE)
+filename <- args[1]
+sheetname <- args[2]
+comp_col <- args[3]
+num_col <- args[4]
+sep_col <- args[5]
+output <- args[6]
 
 #################################
 ## Load in and clean up the files

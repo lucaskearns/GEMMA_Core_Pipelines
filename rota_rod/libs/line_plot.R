@@ -9,12 +9,19 @@ library(readxl)
 ## Argument parsing
 ###################
 
-filename <- "/Users/lucaskearns/weissman_hood/working_dir/GEMMA/data/rotarod/1536 Prelim Cohort Days 1-3 FAKE GENOTYPE.xlsx"
-sheetname <- "Sheet1"
-comp_col <- "Trial Number"
-num_col = "Drop Speed"
-sep_col <- "Genotype"
-output <- "/Users/lucaskearns/weissman_hood/working_dir/GEMMA/data/rotarod/test_output/1536 Prelim Cohort Days 1-3 FAKE GENOTYPE.pdf"
+# filename <- "/Users/lucaskearns/weissman_hood/working_dir/GEMMA/data/rotarod/1536 Prelim Cohort Days 1-3 FAKE GENOTYPE.xlsx"
+# sheetname <- "Sheet1"
+# trial_col <- "Trial Number"
+# num_col = "Drop Speed"
+# sep_col <- "Genotype"
+# output <- "/Users/lucaskearns/weissman_hood/working_dir/GEMMA/data/rotarod/test_output/1536 Prelim Cohort Days 1-3 FAKE GENOTYPE.pdf"
+args <- commandArgs(trailingOnly = TRUE)
+filename <- args[1]
+sheetname <- args[2]
+trial_col <- args[3]
+num_col <- args[4]
+sep_col <- args[5]
+output <- args[6]
 
 #################################
 ## Load in and clean up the files
@@ -44,15 +51,9 @@ survival_pts <- seq(0, num_max, by = 1)
 # Generate a dataframe recording survival results
 survival_df <- data.frame()
 for (sep_val in unique(df[[sep_col]])){
-  print("++++")
-  print(sep_val)
-  
-  for (comp_val in unique(df[[comp_col]])){
-    print("-")
-    print(comp_val)
-    
+  for (comp_val in unique(df[[trial_col]])){
     sep_comp_num_df <- df %>%
-      filter( (.data[[sep_col]] == sep_val) & (.data[[comp_col]] == comp_val) )
+      filter( (.data[[sep_col]] == sep_val) & (.data[[trial_col]] == comp_val) )
     
     sep_comp_num_col <- sep_comp_num_df %>%
       pull(num_col)
@@ -75,9 +76,6 @@ for (sep_val in unique(df[[sep_col]])){
 
 mean_survival_df = data.frame()
 for (sep_v in unique(survival_df[["sep_val"]])){
-  print("++++")
-  print(sep_v)
-  
   summar_df <- survival_df %>%
     filter(survival_df[["sep_val"]] == sep_v) %>%
     group_by(survival_num) %>%
@@ -126,5 +124,4 @@ p <- p + theme_classic() +
   ylab("Number Remaining") +
   xlab(num_col)
   
-print(p)
 ggsave(output)
