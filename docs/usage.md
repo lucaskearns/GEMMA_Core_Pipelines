@@ -14,9 +14,10 @@ An additional note is that the internally calculate dataframes which are used in
 
 This functionality generates paired boxplots and performs some simple t-tests across each pairing. Additionally, FDR is performed to account for multiple hypothesis testing.
 
-Image
-![boxplot](https://github.com/lucaskearns/GEMMA_Core_Pipelines/blob/main/images/boxplot.png)
-
+<p align="center">
+<img src=https://github.com/lucaskearns/GEMMA_Core_Pipelines/blob/main/images/boxplot.png width="60%">
+<p>
+  
 **Usage**
 
 `python GEMMA_Core_Pipelines/rota_rod/rota_rod.py boxplot -h`
@@ -33,8 +34,9 @@ In this case *--num_col* encode the numerical data being compared within the pai
 
 The "survival" graph is typically used for examining the number of mice remaining on the rotarod across a continuous variable compared between some kind of differentiator (eg Drop speed). Notably, this is a plot of the mean with an indication of the spread (+- 1 stnd dev) across the continuous variable.
 
-Image
-![survival plot](https://github.com/lucaskearns/GEMMA_Core_Pipelines/blob/main/images/line_plot.png)
+<p align="center">
+<img src=https://github.com/lucaskearns/GEMMA_Core_Pipelines/blob/main/images/line_plot.png width="60%">
+<p>
 
 `python GEMMA_Core_Pipelines/rota_rod/rota_rod.py lineplot -h`
 
