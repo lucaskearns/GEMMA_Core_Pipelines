@@ -1,11 +1,10 @@
-# GEMMA_Core_Pipelines
+# GEMMA Core Pipelines
 
-A collection of pipelines to enable automatic analysis of mouse behavioral data.
+This is a set of pipelines enabling automatic analysis of mouse behavioral data separated by enclosure.
 
+# Enclosures Supported
+* rotarod
 
-# ToDo
+# Usage Details
 
-*Collection of tasks I am planning on completing*
-
-* Write out some easy install commands for R and python
-* Write out dependencies for more advanced users to manually configure code IE with conda etc.
+These are all command line tools. See the [usage guide](https://github.com/lucaskearns/GEMMA_Core_Pipelines/blob/main/docs/usage.md) for instruction on usage of supported pipelines.
