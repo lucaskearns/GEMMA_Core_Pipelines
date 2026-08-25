@@ -120,8 +120,10 @@ ggplot(df, aes(x = .data[[sep_col]], y = .data[[num_col]], fill = .data[[comp_co
   theme(plot.title = element_text(hjust = .5))
 
 
-# Save visualization to output file
+# Save visualization and dataframe to output file
 ggsave(output)
+write.csv(stat_df,
+          str_replace(output, ".pdf", ".csv"))
 
 
 

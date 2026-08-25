@@ -124,4 +124,7 @@ p <- p + theme_classic() +
   ylab("Number Remaining") +
   xlab(num_col)
   
+# Write output
 ggsave(output)
+write.csv(mean_survival_df,
+          str_replace(output, ".pdf", ".csv"))
